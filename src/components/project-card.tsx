@@ -1,3 +1,5 @@
+"use client";
+
 import {
   Card,
   CardHeader,
@@ -6,6 +8,7 @@ import {
   CardTitle,
 } from "./ui/card";
 import { Badge } from "./ui/badge";
+import { cn } from "@/lib/utils";
 
 interface Props {
   title: string;
@@ -16,22 +19,18 @@ interface Props {
 
 export function ProjectCard({ title, description, tags, link }: Props) {
   return (
-    <Card className="flex flex-col overflow-hidden border border-muted p-3">
+    <Card
+      className={cn(
+        "transition-color flex flex-col overflow-hidden border border-muted p-3 duration-200",
+        link && "cursor-pointer hover:bg-gray-100 active:scale-[0.99]",
+      )}
+      onClick={() => link && window.open(link, "_blank")}
+    >
       <CardHeader className="">
         <div className="space-y-1">
           <CardTitle className="text-base">
-            {link ? (
-              <a
-                href={link}
-                target="_blank"
-                className="inline-flex items-center gap-1 hover:underline"
-              >
-                {title}{" "}
-                <span className="size-1 rounded-full bg-green-500"></span>
-              </a>
-            ) : (
-              title
-            )}
+            {title}
+            <span className="size-2 rounded-full bg-green-500" />
           </CardTitle>
           <div className="hidden font-mono text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
