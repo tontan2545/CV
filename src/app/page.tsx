@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 md:p-16 print:p-12">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto overscroll-x-none p-4 md:p-16 print:p-12">
       <section className="mx-auto w-full max-w-2xl space-y-8 bg-white print:space-y-6">
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
@@ -107,15 +107,19 @@ export default function Page() {
                 <Card key={work.company} className="space-y-2">
                   <CardHeader>
                     <div className="flex items-center justify-between gap-x-2 text-base">
-                      <h3 className="inline-flex items-center justify-center gap-x-2 font-semibold leading-none">
-                        <Image
-                          src={work.logo}
-                          alt="work-logo"
-                          width={20}
-                          height={20}
-                          className="overflow-clip rounded-sm"
-                        />
-                        <a className="hover:underline" href={work.link}>
+                      <h3 className="inline-flex items-center justify-center gap-x-1 font-semibold leading-none sm:gap-x-2">
+                        <div className="relative h-5 w-5 rounded-sm">
+                          <Image
+                            src={work.logo}
+                            alt="work-logo"
+                            fill
+                            className="overflow-clip object-contain"
+                          />
+                        </div>
+                        <a
+                          className="text-sm hover:underline sm:text-base"
+                          href={work.link}
+                        >
                           {work.company}
                         </a>
 
@@ -123,7 +127,7 @@ export default function Page() {
                           {work.badges.map((badge) => (
                             <Badge
                               variant="secondary"
-                              className="align-middle text-xs"
+                              className="align-middle"
                               key={badge}
                             >
                               {badge}
@@ -131,7 +135,7 @@ export default function Page() {
                           ))}
                         </span>
                       </h3>
-                      <div className="text-sm tabular-nums text-gray-500">
+                      <div className="text-xs tabular-nums text-gray-500 sm:text-sm">
                         {work.start} - {work.end}
                       </div>
                     </div>
@@ -140,17 +144,17 @@ export default function Page() {
                       {work.title}
                     </h4>
                   </CardHeader>
-                  <div className="flex gap-2">
+                  <div className="flex w-full gap-2 overflow-x-scroll">
                     {work.technologoes.map((technology) => (
                       <div
                         key={`${work.company}-${technology}`}
-                        className="w-max rounded-md border-[1px] border-border px-2 py-1 font-mono text-[10px] font-medium text-muted-foreground transition-colors duration-200 hover:bg-gray-100"
+                        className="whitespace-nowrap rounded-md border-[1px] border-border px-2 py-1 font-mono text-[10px] font-medium text-muted-foreground transition-colors duration-200 hover:bg-gray-100 sm:text-xs"
                       >
                         {technology}
                       </div>
                     ))}
                   </div>
-                  <CardContent className="mt-2 text-xs">
+                  <CardContent className="mt-2 text-[10px] sm:text-xs">
                     {work.description.map((description) => (
                       <div key={description} className="flex gap-2">
                         <Circle className="relative top-1 h-2 w-2" />
