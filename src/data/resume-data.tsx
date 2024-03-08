@@ -13,7 +13,7 @@ export const RESUME_DATA = {
   locationLink: "https://www.google.com/maps/place/bangkok",
   about: "Full Stack Engineer & Solutions Architect",
   summary:
-    "A Full Stack engineer and Solutions Architect with 3 years of experience in building products for startups and big companies. I'm passionate about building products that are easy to use and maintain. I'm a big fan of building products that matters to the people",
+    "A Full Stack engineer and Solutions Architect with 3 years of experience in building products for startups and big companies. I'm passionate about building products that are scalable, user-friendly, and impactful. I have a strong background in software engineering, data engineering, and cloud architecture. I'm a quick learner and a team player who is always eager to learn new technologies and work with new people.",
   avatarUrl: "https://avatars.githubusercontent.com/u/43312669?v=4",
   personalWebsiteUrl: "https://nkaewam.dev",
   contact: {
@@ -144,6 +144,17 @@ export const RESUME_DATA = {
     "Azure",
   ],
   projects: [
+    {
+      title: "Warehouse of Heart",
+      techStack: ["Next.js", "TypeScript", "Framer Motion"],
+      description:
+        "Interactive website for Warehouse of Heart event in TCDC. Worked as the engineering lead for the project.",
+      logo: AWSLogo,
+      link: {
+        label: "warehouseofheart.coachbychamp.com",
+        href: "https://warehouseofheart.coachbychamp.com",
+      },
+    },
     {
       title: "Inquiro",
       techStack: [
